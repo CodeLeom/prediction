@@ -71,7 +71,9 @@ function Prediction() {
         </button>
       </nav>
       <div className="App">
-        <header className="App-header">
+        <p style={{ color: 'gray' }}> 0 0 response means the transaction is not fraudulent</p>
+        <p style={{ color: 'gray' }}>0 1 response means the transaction is fraudulent</p>
+        <div className="App-body">
           <form onSubmit={handleSubmit}>
             <label>
               Transaction Data URL
@@ -86,7 +88,7 @@ function Prediction() {
           </form>
           {error && <p style={{ color: 'white' }}>{error}</p>}
           {isLoading ? <Spinner /> : result && <p>Result: {result}</p>}
-        </header>
+        </div>
       </div>
     </div>
   );
