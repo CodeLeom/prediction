@@ -1,23 +1,86 @@
+body {
+  background-color: beige;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: beige;
+  padding: 5px;
+}
+
+nav .nav-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.generate-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.generate-form label {
+  color: black;
+  display: flex;
+  align-items: center;
+  font-size: small;
+}
+
+.generate-form input {
+  margin-left: 10px;
+  padding: 0.5rem;
+  font-size: small;
+  width: 100%;
+}
+
+.center-button {
+  grid-column: span 2;
+  justify-self: center;
+  margin-top: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.copy-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.copy-section input {
+  width: 100%;
+  max-width: auto;
+  margin-bottom: 10px;
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #282c347e;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-top: 5px;
 }
 
 input {
   padding: 0.5rem;
   font-size: 1rem;
   margin: 0.5rem;
-  width: 300px;
+  width: 80%;
+  max-width: 300px;
 }
 
 button {
@@ -30,7 +93,11 @@ p {
   font-size: 1.2rem;
 }
 
-/* modal styles */
+.heading {
+  color: black;
+}
+
+/* Modal styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -47,20 +114,28 @@ p {
   background: white;
   padding: 20px;
   border-radius: 5px;
-  width: 500px;
-  max-width: 100%;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background: none;
   border: none;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
-/* spinner styles */
+.modal-content {
+  padding: 20px 0;
+}
+
+/* Spinner styles */
 .spinner-container {
   display: flex;
   justify-content: center;
@@ -68,13 +143,29 @@ p {
 }
 
 .custom-loader {
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  padding:3px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 3px;
   background: 
     radial-gradient(farthest-side,#FF600C 95%,#0000) 50% 0/12px 12px no-repeat,
     radial-gradient(farthest-side,#0000 calc(100% - 5px),#FF600C calc(100% - 4px)) content-box;
-  animation:s6 2s infinite ;
+  animation: s6 2s infinite;
 }
-@keyframes s6 {to{transform: rotate(1turn)}}
+
+@keyframes s6 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .generate-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .center-button {
+    grid-column: span 1;
+  }
+}
