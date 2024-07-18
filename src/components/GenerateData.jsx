@@ -25,7 +25,8 @@ const GenerateData = () => {
     });
     setErrors({
       ...errors,
-      [e.target.name]: '', // Clear error when the user types
+      // Clear error when the user types
+      [e.target.name]: '', 
     });
   };
 
