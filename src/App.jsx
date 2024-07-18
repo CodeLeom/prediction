@@ -1,10 +1,10 @@
-
+import Prediction from "./components/Prediction"
 
 function App() {
 
   return (
     <>
-    
+      <Prediction />
     </>
   )
 }
