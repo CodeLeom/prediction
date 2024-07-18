@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Spinner from './layout/Spinner';
+import GenerateData from './GenerateData';
 
 function Prediction() {
   const [transactionUrl, setTransactionUrl] = useState('');
@@ -9,6 +10,10 @@ function Prediction() {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
   const API_KEY = import.meta.env.VITE_API_KEY;
   const FLOW_ID = import.meta.env.VITE_FLOW_ID;
+
+  const handleGenerate = (generatedUrl) => {
+    setTransactionUrl(generatedUrl);
+  };
 
   const handleChange = (e) => {
     setTransactionUrl(e.target.value);
@@ -47,6 +52,7 @@ function Prediction() {
     <div className="App">
       <header className="App-header">
         <h1>Fraud Detection</h1>
+        <GenerateData onGenerate={handleGenerate} />
         <form onSubmit={handleSubmit}>
           <input
             type="text"
